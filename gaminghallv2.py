@@ -1,9 +1,11 @@
 import random, os 
 Chips = None
 plays = 0
-bankfile = open('bank.txt','r')
-readbank = bankfile.read()
-bank = float(readbank)
+base_dir = os.path.dirname(os.path.abspath(__file__))
+bankpath = os.path.join(base_dir, 'bank.txt')
+with open(bankpath, 'r') as bankfile:
+    readbank = bankfile.read()
+bank = int(float(readbank))
 print(bank)
 def ChipsStart():
     global Chips, currentbet
